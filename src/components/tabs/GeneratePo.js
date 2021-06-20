@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { faFileDownload,faFileExcel ,faSortDown} from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from "react";
+
 
 const list = [
   {
@@ -47,12 +48,14 @@ function GeneratePo() {
 
       <div className="space-y-2">
         {list.map((item, index) => (
-          <div>
-            key={index}
-            <div>
+          <div  key={index}
+          className="flex w-full space-x-12 bg-gray-200 text-gray-600 px-4 py-3"
+           >
+           
+            <div className="w-1/4 flex items-center justify-between pr-8">
               <p>{item.name}</p>
               <FontAwesomeIcon
-                icon={''}
+                icon={faSortDown}
                 onClick={() => toggle(index)}
               />
             </div>
@@ -61,10 +64,10 @@ function GeneratePo() {
               <p className="text-xs">{item.time}</p>
             </div>
             <div className="flex items-center space-x-4 w-1/4 justify-between">
-              <FontAwesomeIcon icon={''} className="text-green-700" />
+              <FontAwesomeIcon icon={faFileExcel} className="text-green-700" />
               <p>{item.file}</p>
               <a href="../../random.csv" download="../../random.csv">
-                <FontAwesomeIcon icon={''} ><i class="fas fa-file-download"></i></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faFileDownload} ><i class="fas fa-file-download"></i></FontAwesomeIcon>
               </a>
             </div>
           </div>
