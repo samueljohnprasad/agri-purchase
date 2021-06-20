@@ -1,9 +1,3 @@
-// import {
-  
-//   faFileExcel,
-//   faSortDown,
-// } from '@fortawesome/react-fontawesome';
-import  d from './file-download-solid.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import React, { useState } from "react";
@@ -38,7 +32,7 @@ const list = [
 function GeneratePo() {
   const [state, setState] = useState(false);
   const toggle = (index) => {
-    if (state == index) {
+    if (state === index) {
       return setState(false);
     }
 
