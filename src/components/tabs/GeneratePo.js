@@ -1,34 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileDownload,faFileExcel ,faSortDown} from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from "react";
+import customerData from "../../utils/customerData";
 
 
-const list = [
-  {
-    name: "AGUY13042020_1042",
-    by: "Alex Lee",
-    time: "Mon, 13 Apr, 10:42 AM",
-    file: "AGUY13042020_1042.csv",
-  },
-  {
-    name: "AGUY13042020_1043",
-    by: "Alex Lee",
-    time: "Mon, 13 Apr, 10:42 AM",
-    file: "AGUY13042020_1043.csv",
-  },
-  {
-    name: "AGUY13042020_1044",
-    by: "Alex Lee",
-    time: "Mon, 13 Apr, 10:42 AM",
-    file: "AGUY13042020_1044.csv",
-  },
-  {
-    name: "AGUY13042020_1045",
-    by: "Alex Lee",
-    time: "Mon, 13 Apr, 10:42 AM",
-    file: "AGUY13042020_1045.csv",
-  },
-];
+const list =customerData()
 
 function GeneratePo() {
   const [state, setState] = useState(false);
