@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import TableBody from "./TableBody";
 
 function TableData({ isOpen, products, FontAwesomeIcon }) {
-    
   return (
     isOpen && (
       <table className="min-w-max w-full table-auto">

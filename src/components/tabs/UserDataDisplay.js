@@ -6,6 +6,7 @@ import {
   faFileExcel,
 } from "@fortawesome/free-solid-svg-icons";
 import TableData from "./TableData";
+
 function UserDataDisplay({ user, FontAwesomeIcon, toggle, index, toggler }) {
   return (
     <React.Fragment>
@@ -13,14 +14,13 @@ function UserDataDisplay({ user, FontAwesomeIcon, toggle, index, toggler }) {
         key={index}
         className="flex w-full space-x-12 bg-gray-200 text-gray-600 px-4 py-3"
       >
-        <div className="w-1/4 flex items-center justify-between pr-8">
+        <div
+          className="w-1/4 flex items-center justify-between pr-8"
+          onClick={() => toggle(index)}
+        >
           <p>{user.name}</p>
-          <FontAwesomeIcon
-            icon={toggler === index ? faSortUp : faSortDown}
-            onClick={() => toggle(index)}
-          />
+          <FontAwesomeIcon icon={toggler === index ? faSortUp : faSortDown} />
         </div>
-
         <div className="">
           <p className="text-sm">{user.by}</p>
           <p className="text-xs">{user.time}</p>

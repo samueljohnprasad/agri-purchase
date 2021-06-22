@@ -23,12 +23,12 @@ function NavBar() {
       <TabGroup numTabs={3} direction={TabGroup.direction.HORIZONTAL}>
         <TabGroup.TabList>
           {tabArr.map((tab, index) => (
-            <Tabs tab={tab} index={index} />
+            <Tabs key={index} tab={tab} index={index} />
           ))}
         </TabGroup.TabList>
 
         {tabArr.map((tab, index) => (
-          <TabPanels index={index} tab={tab} />
+          <TabPanels key={index} index={index} tab={tab} />
         ))}
       </TabGroup>
     </div>

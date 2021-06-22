@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import AgriPurchase from './components/AgriPurchase';

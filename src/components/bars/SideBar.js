@@ -14,10 +14,10 @@ function SideBar() {
       <div className="border-b">
         <h1 className="text-gray-200 text-xl">Agri Purchase Management </h1>
       </div>
-      {sidetabs.map((item) => {
+      {sidetabs.map((item,index) => {
         return (
-          <div className=" hover:text-green-500 text-sm">
-            <a href="">{item}</a>
+          <div key={index} className=" hover:text-green-500 text-sm">
+            <a href="/">{item}</a>
           </div>
         );
       })}

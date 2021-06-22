@@ -19,11 +19,11 @@ function ExecutingTab() {
         <TabGroup numTabs={3} direction={TabGroup.direction.HORIZONTAL}>
           <TabGroup.TabList>
             {tabs.map((tab, index) => (
-              <Tabs index={index} tab={tab} />
+              <Tabs key={index} index={index} tab={tab} />
             ))}
           </TabGroup.TabList>
           {tabs.map((tab, index) => (
-            <TabPanels tab={tab} index={index}  />
+            <TabPanels key={index} tab={tab} index={index}  />
           ))}
         </TabGroup>
       </div>
