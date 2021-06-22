@@ -6,7 +6,7 @@ import {
   faFileExcel,
 } from "@fortawesome/free-solid-svg-icons";
 import TableData from "./TableData";
-function UserDataDisplay({ item, FontAwesomeIcon, toggle, index, state }) {
+function UserDataDisplay({ user, FontAwesomeIcon, toggle, index, toggler }) {
   return (
     <React.Fragment>
       <div
@@ -14,20 +14,20 @@ function UserDataDisplay({ item, FontAwesomeIcon, toggle, index, state }) {
         className="flex w-full space-x-12 bg-gray-200 text-gray-600 px-4 py-3"
       >
         <div className="w-1/4 flex items-center justify-between pr-8">
-          <p>{item.name}</p>
+          <p>{user.name}</p>
           <FontAwesomeIcon
-            icon={state === index ? faSortUp : faSortDown}
+            icon={toggler === index ? faSortUp : faSortDown}
             onClick={() => toggle(index)}
           />
         </div>
 
         <div className="">
-          <p className="text-sm">{item.by}</p>
-          <p className="text-xs">{item.time}</p>
+          <p className="text-sm">{user.by}</p>
+          <p className="text-xs">{user.time}</p>
         </div>
         <div className="flex items-center space-x-4 w-1/4 justify-between">
           <FontAwesomeIcon icon={faFileExcel} className="text-green-700" />
-          <p>{item.file}</p>
+          <p>{user.file}</p>
           <a href="www.google.com" download="">
             <FontAwesomeIcon icon={faFileDownload}>
               <i class="fas fa-file-download"></i>
@@ -35,8 +35,12 @@ function UserDataDisplay({ item, FontAwesomeIcon, toggle, index, state }) {
           </a>
         </div>
       </div>
-      {state === index ? (
-        <TableData FontAwesomeIcon={FontAwesomeIcon} isOpen={true} />
+      {toggler === index ? (
+        <TableData
+          products={user.products}
+          FontAwesomeIcon={FontAwesomeIcon}
+          isOpen={true}
+        />
       ) : (
         <></>
       )}

@@ -3,11 +3,16 @@ import { TabGroup } from "@statikly/funk";
 import Tabs from "./Tabs";
 import TabPanels from "./TabPanels";
 import ExecutingTab from "../tabs/ExecutingTab";
+import PendingData from "../../utils/pendingData";
+import FinishedData from "../../utils/finishedData";
+import GeneratePo from "../tabs/GeneratePo";
+
+const list = PendingData();
 const tabArr = [
-  { tabName: "Pending",},
-  { tabName: "Executing", panel: ExecutingTab  },
-  { tabName: "Executed",  },
-  { tabName: "Finished", },
+  { tabName: "Executing", panel: ExecutingTab },
+  { tabName: "Pending", tbles: GeneratePo, list },
+  { tabName: "Executed", tbles: GeneratePo, list },
+  { tabName: "Finished", tbles: GeneratePo, list: FinishedData() },
 ];
 function NavBar() {
   return (
@@ -18,12 +23,12 @@ function NavBar() {
       <TabGroup numTabs={3} direction={TabGroup.direction.HORIZONTAL}>
         <TabGroup.TabList>
           {tabArr.map((tab, index) => (
-            <Tabs tab={tab} index={index}/>
+            <Tabs tab={tab} index={index} />
           ))}
         </TabGroup.TabList>
 
         {tabArr.map((tab, index) => (
-          <TabPanels index={index} tab={tab}/>
+          <TabPanels index={index} tab={tab} />
         ))}
       </TabGroup>
     </div>

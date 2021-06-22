@@ -7,7 +7,6 @@ const styles = {
   inactiveClassName: "absolute opacity-0 -translate-x-2",
 };
 
-
 function TabPanels({ index, tab }) {
   return (
     <TabGroup.TabPanel
@@ -16,7 +15,8 @@ function TabPanels({ index, tab }) {
       activeClassName={styles.activeClassName}
       inactiveClassName={styles.inactiveClassName}
     >
-      {(tab.panel && <tab.panel />) || <h1>{tab.tabName}</h1>}
+      {(tab.panel && <tab.panel tab={tab} />) ||
+        (tab.tbles && <tab.tbles tab={tab} />)  || tab.tabName }
     </TabGroup.TabPanel>
   );
 }

@@ -3,11 +3,14 @@ import { TabGroup } from "@statikly/funk";
 import GeneratePo from "./GeneratePo";
 import TabPanels from "../bars/TabPanels";
 import Tabs from "../bars/Tabs";
+import customerData from "../../utils/customerData";
+const list = customerData();
 
 const tabs = [
+  { tabName: "Generate PO", panel: GeneratePo, list:list},
   { tabName: "Undo Batch" },
   { tabName: "Assign Suppliers" },
-  { tabName: "Generate PO", panel: GeneratePo },
+ 
 ];
 function ExecutingTab() {
   return (
@@ -20,7 +23,7 @@ function ExecutingTab() {
             ))}
           </TabGroup.TabList>
           {tabs.map((tab, index) => (
-            <TabPanels tab={tab} index={index} />
+            <TabPanels tab={tab} index={index}  />
           ))}
         </TabGroup>
       </div>

@@ -1,22 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
-import customerData from "../../utils/customerData";
 import UserDataDisplay from "./UserDataDisplay";
-import { ToIndex } from "es-abstract/es2018";
 
-const list = customerData();
 
-function GeneratePo() {
-
-  const [state, setState] = useState(false);
+function GeneratePo({tab}) {
+  console.log('tab',tab)
+  const {list}= tab
+  const [toggler, setToggler] = useState(false);
 
   const toggle = (index) => {
-    if (state === index) {
-      return setState(false);
+    if (toggler === index) {
+      return setToggler(false);
     }
 
-    setState(index);
+    setToggler(index);
   };
   return (
     <section className="py-4 space-y-2 h-full">
@@ -26,16 +23,14 @@ function GeneratePo() {
       </div>
 
       <div className="space-y-2">
-        {list.map((item, index) => (
-          
-            <UserDataDisplay
-              item={item}
-              FontAwesomeIcon={FontAwesomeIcon}
-              index={index}
-              toggle={toggle}
-              state={state}
-            ></UserDataDisplay>
-         
+        {list.map((user, index) => (
+          <UserDataDisplay
+            user={user}
+            FontAwesomeIcon={FontAwesomeIcon}
+            index={index}
+            toggle={toggle}
+            toggler={toggler}
+          ></UserDataDisplay>
         ))}
       </div>
     </section>
